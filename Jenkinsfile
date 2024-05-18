@@ -9,15 +9,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'cd backend && sudo docker build -t backend .'
-                sh 'cd frontend && sudo docker build -t frontend .'
+                sh 'cd backend && docker build -t backend .'
+                sh 'cd frontend && docker build -t frontend .'
             }
         }
 
         stage('Run') {
             steps {
-                sh 'sudo docker run -d -p 3001:3001 backend'
-                sh 'sudo docker run -d -p 3000:3000 frontend'
+                sh 'docker run -d -p 3001:3001 backend'
+                sh 'docker run -d -p 3000:3000 frontend'
             }
         }
     }
